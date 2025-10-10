@@ -18,12 +18,12 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 gap-4">
           <Link href="/">
-            <a className="flex items-center gap-2 hover-elevate rounded-md px-3 py-2 -ml-3" data-testid="link-home">
+            <div className="flex items-center gap-2 hover-elevate rounded-md px-3 py-2 -ml-3 cursor-pointer" data-testid="link-home">
               <div className="w-8 h-8 rounded-md bg-primary flex items-center justify-center">
                 <Home className="h-5 w-5 text-primary-foreground" />
               </div>
               <span className="font-heading font-bold text-xl hidden sm:inline">SafeStay</span>
-            </a>
+            </div>
           </Link>
 
           <nav className="hidden md:flex items-center gap-2">
@@ -32,16 +32,14 @@ export default function Header() {
               const isActive = location === item.href;
               return (
                 <Link key={item.href} href={item.href}>
-                  <a>
-                    <Button
-                      variant={isActive ? "secondary" : "ghost"}
-                      className="gap-2"
-                      data-testid={`link-${item.label.toLowerCase()}`}
-                    >
-                      <Icon className="h-4 w-4" />
-                      {item.label}
-                    </Button>
-                  </a>
+                  <Button
+                    variant={isActive ? "secondary" : "ghost"}
+                    className="gap-2"
+                    data-testid={`link-${item.label.toLowerCase()}`}
+                  >
+                    <Icon className="h-4 w-4" />
+                    {item.label}
+                  </Button>
                 </Link>
               );
             })}
@@ -73,16 +71,15 @@ export default function Header() {
                 const isActive = location === item.href;
                 return (
                   <Link key={item.href} href={item.href}>
-                    <a onClick={() => setMobileMenuOpen(false)}>
-                      <Button
-                        variant={isActive ? "secondary" : "ghost"}
-                        className="w-full justify-start gap-2"
-                        data-testid={`link-mobile-${item.label.toLowerCase()}`}
-                      >
-                        <Icon className="h-4 w-4" />
-                        {item.label}
-                      </Button>
-                    </a>
+                    <Button
+                      onClick={() => setMobileMenuOpen(false)}
+                      variant={isActive ? "secondary" : "ghost"}
+                      className="w-full justify-start gap-2"
+                      data-testid={`link-mobile-${item.label.toLowerCase()}`}
+                    >
+                      <Icon className="h-4 w-4" />
+                      {item.label}
+                    </Button>
                   </Link>
                 );
               })}
