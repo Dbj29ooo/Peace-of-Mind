@@ -30,8 +30,8 @@ export default function Home() {
   const featuredListings = [
     {
       id: "1",
-      title: "Modern Studio in Capitol Hill",
-      location: "Capitol Hill, Seattle, WA",
+      title: "Serene Garden Apartment",
+      location: "Forest Hills, Portland, OR",
       price: 1200,
       type: "rental" as const,
       rating: 4.8,
@@ -45,8 +45,8 @@ export default function Home() {
     },
     {
       id: "2",
-      title: "Spacious Room in Shared House",
-      location: "Fremont, Seattle, WA",
+      title: "Quiet Retreat Home",
+      location: "Peaceful Valley, Boulder, CO",
       price: 850,
       type: "shared" as const,
       rating: 4.9,
@@ -60,8 +60,8 @@ export default function Home() {
     },
     {
       id: "3",
-      title: "Student Housing Near UW",
-      location: "University District, Seattle, WA",
+      title: "Mindful Living Space",
+      location: "Nature's Edge, Asheville, NC",
       price: 950,
       type: "student" as const,
       rating: 4.6,
@@ -77,57 +77,57 @@ export default function Home() {
   const nearbyResources = [
     {
       id: "1",
-      name: "Rainbow Health Clinic",
+      name: "Wellness Center & Yoga Studio",
       category: "health" as const,
       distance: "0.3 mi",
-      address: "1234 Pride Ave, Seattle, WA 98102",
-      hours: "Mon-Fri 9AM-5PM",
-      phone: "(206) 555-0123"
+      address: "1234 Zen Way, Portland, OR 97214",
+      hours: "Mon-Fri 6AM-8PM",
+      phone: "(503) 555-0123"
     },
     {
       id: "2",
-      name: "Pride Community Center",
+      name: "Community Garden & Park",
       category: "community" as const,
       distance: "0.5 mi",
-      address: "5678 Rainbow Blvd, Seattle, WA 98102",
-      hours: "Daily 10AM-8PM",
-      phone: "(206) 555-0456"
+      address: "5678 Nature Blvd, Portland, OR 97214",
+      hours: "Daily 6AM-Dusk",
+      phone: "(503) 555-0456"
     },
     {
       id: "3",
-      name: "LGBTQ+ Support Services",
+      name: "Meditation & Mindfulness Center",
       category: "support" as const,
       distance: "0.7 mi",
-      address: "9101 Equality St, Seattle, WA 98102",
+      address: "9101 Peace St, Portland, OR 97214",
       hours: "Mon-Sat 9AM-6PM",
-      phone: "(206) 555-0789"
+      phone: "(503) 555-0789"
     },
     {
       id: "4",
-      name: "Queer Social Meetup Group",
+      name: "Sustainable Living Collective",
       category: "social" as const,
       distance: "0.4 mi",
-      address: "2345 Community Way, Seattle, WA 98102"
+      address: "2345 Green Way, Portland, OR 97214"
     }
   ];
 
   const communityReviews = [
     {
       id: "1",
-      userName: "Alex Rivera",
+      userName: "Sarah Mitchell",
       rating: 5,
       date: "2 weeks ago",
-      review: "This place has been a sanctuary for me. The landlord is incredibly supportive, and I've never felt more at home. The neighborhood is vibrant with plenty of LGBTQ+ friendly spaces nearby.",
-      tags: ["Trans-Friendly", "Safe Neighborhood", "Supportive Landlord"],
+      review: "Finally found my peace here. The apartment overlooks a beautiful garden, and the neighborhood is incredibly quiet. I've been able to focus on my wellness practice. The landlord is thoughtful and respectful of my quiet time.",
+      tags: ["Peaceful", "Garden Views", "Mindful Landlord"],
       helpfulCount: 12
     },
     {
       id: "2",
-      userName: "Jordan Chen",
+      userName: "James Park",
       rating: 5,
       date: "1 month ago",
-      review: "Amazing community and roommates who truly understand and respect each other. The proximity to the Pride Center has been life-changing for connecting with the community.",
-      tags: ["Couples Welcome", "Great Roommates", "Community Connection"],
+      review: "Living here has transformed my stress levels. The community shares similar values around sustainability and mindful living. Being close to nature trails and the meditation center has been amazing for my well-being.",
+      tags: ["Nature Access", "Sustainable", "Great Community"],
       helpfulCount: 8
     }
   ];
@@ -155,9 +155,9 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
             </div>
-            <h2 className="font-heading font-bold text-3xl mb-4">Welcome to SafeStay</h2>
+            <h2 className="font-heading font-bold text-3xl mb-4">Welcome to Zenith</h2>
             <p className="text-muted-foreground text-lg">
-              Join our community to access safe, LGBTQ+ friendly housing listings
+              Join our community to discover peaceful rental properties and serene living spaces
             </p>
           </div>
         </div>
@@ -167,8 +167,8 @@ export default function Home() {
         <>
           <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div className="mb-8">
-              <h2 className="font-heading font-bold text-3xl mb-2">Featured Listings</h2>
-              <p className="text-muted-foreground">Community-verified safe and welcoming spaces</p>
+              <h2 className="font-heading font-bold text-3xl mb-2">Featured Properties</h2>
+              <p className="text-muted-foreground">Peaceful rental homes in serene locations</p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
@@ -181,8 +181,8 @@ export default function Home() {
           <section className="bg-muted/30 py-16">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="mb-8">
-                <h2 className="font-heading font-bold text-3xl mb-2">Explore Listings & Resources</h2>
-                <p className="text-muted-foreground">See where safe housing meets essential community resources</p>
+                <h2 className="font-heading font-bold text-3xl mb-2">Explore Properties & Amenities</h2>
+                <p className="text-muted-foreground">Discover peaceful homes and nearby wellness centers</p>
               </div>
               
               <SimpleMap markers={mapMarkers} />
@@ -191,8 +191,8 @@ export default function Home() {
 
           <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div className="mb-8">
-              <h2 className="font-heading font-bold text-3xl mb-2">Nearby LGBTQ+ Resources</h2>
-              <p className="text-muted-foreground">Essential services and community spaces near you</p>
+              <h2 className="font-heading font-bold text-3xl mb-2">Nearby Wellness & Amenities</h2>
+              <p className="text-muted-foreground">Yoga studios, parks, meditation centers, and community spaces</p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -205,8 +205,8 @@ export default function Home() {
           <section className="bg-muted/30 py-16">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="mb-8">
-                <h2 className="font-heading font-bold text-3xl mb-2">Community Reviews</h2>
-                <p className="text-muted-foreground">Real experiences from LGBTQ+ residents</p>
+                <h2 className="font-heading font-bold text-3xl mb-2">Resident Reviews</h2>
+                <p className="text-muted-foreground">Real experiences from residents who've found their zen</p>
               </div>
               
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -220,10 +220,10 @@ export default function Home() {
           <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div className="bg-gradient-to-br from-primary/10 to-chart-2/10 rounded-2xl p-8 sm:p-12 text-center">
               <h2 className="font-heading font-bold text-3xl sm:text-4xl mb-4">
-                Ready to Find Your Safe Space?
+                Ready to Find Your Zen Sanctuary?
               </h2>
               <p className="text-muted-foreground text-lg mb-6 max-w-2xl mx-auto">
-                Join thousands of LGBTQ+ individuals who have found welcoming homes through our community-driven platform
+                Join thousands of people who have found peaceful, serene homes through our curated platform
               </p>
             </div>
           </section>
