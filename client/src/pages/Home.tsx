@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ListingCard from "@/components/ListingCard";
@@ -9,8 +10,9 @@ import { useAuth } from "@/hooks/use-auth";
 
 export default function Home() {
   const { isAuthenticated, isLoading } = useAuth();
+  const [dismissed, setDismissed] = useState(false);
 
-  const showLoginDialog = !isLoading && !isAuthenticated;
+  const showLoginDialog = !isLoading && !isAuthenticated && !dismissed;
 
   const featuredListings = [
     {
@@ -126,7 +128,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background relative">
-      <EmailCaptureDialog open={showLoginDialog} />
+      <EmailCaptureDialog open={showLoginDialog} onClose={() => setDismissed(true)} />
       
       <div className={showLoginDialog ? "blur-sm pointer-events-none select-none" : ""}>
         <Header />

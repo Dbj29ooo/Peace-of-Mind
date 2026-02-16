@@ -1,4 +1,4 @@
-import { Shield, Heart, Users } from "lucide-react";
+import { Shield, Heart, Users, X } from "lucide-react";
 import { SiGoogle, SiGithub, SiX, SiApple } from "react-icons/si";
 import {
   Dialog,
@@ -12,21 +12,28 @@ import { Separator } from "@/components/ui/separator";
 
 interface EmailCaptureDialogProps {
   open: boolean;
+  onClose: () => void;
 }
 
-export default function EmailCaptureDialog({ open }: EmailCaptureDialogProps) {
+export default function EmailCaptureDialog({ open, onClose }: EmailCaptureDialogProps) {
   const handleLogin = () => {
     window.location.href = "/api/login";
   };
 
   return (
-    <Dialog open={open} onOpenChange={() => {}} modal={false}>
+    <Dialog open={open} onOpenChange={(isOpen) => { if (!isOpen) onClose(); }} modal={false}>
       <DialogContent 
         className="sm:max-w-md pointer-events-auto" 
-        onInteractOutside={(e) => e.preventDefault()}
-        onEscapeKeyDown={(e) => e.preventDefault()}
         hideCloseButton
       >
+        <button
+          onClick={onClose}
+          className="absolute right-3 top-3 rounded-full bg-muted p-1.5 transition-opacity hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+          data-testid="button-close-login"
+        >
+          <X className="h-4 w-4" />
+          <span className="sr-only">Close</span>
+        </button>
         <DialogHeader>
           <div className="mx-auto mb-4 bg-primary/10 rounded-full p-3">
             <Shield className="h-8 w-8 text-primary" />
