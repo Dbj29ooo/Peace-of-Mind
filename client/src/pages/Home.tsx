@@ -140,95 +140,77 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
       <EmailCaptureDialog open={showEmailDialog} onEmailSubmit={handleEmailSubmit} />
       
-      <Header />
-      
-      {hasSubmittedEmail && <HeroSection />}
+      <div className={showEmailDialog ? "blur-sm pointer-events-none select-none" : ""}>
+        <Header />
+        
+        <HeroSection />
 
-      {!hasSubmittedEmail && (
-        <div className="min-h-[60vh] flex items-center justify-center px-4">
-          <div className="text-center max-w-md">
-            <div className="mb-6 bg-primary/10 rounded-full p-6 w-fit mx-auto">
-              <svg className="h-16 w-16 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="mb-8">
+            <h2 className="font-heading font-bold text-3xl mb-2">Featured Listings</h2>
+            <p className="text-muted-foreground">Community-verified safe and welcoming spaces</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            {featuredListings.map((listing) => (
+              <ListingCard key={listing.id} {...listing} />
+            ))}
+          </div>
+        </section>
+
+        <section className="bg-muted/30 py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="mb-8">
+              <h2 className="font-heading font-bold text-3xl mb-2">Explore Listings & Resources</h2>
+              <p className="text-muted-foreground">See where safe housing meets essential community resources</p>
             </div>
-            <h2 className="font-heading font-bold text-3xl mb-4">Welcome to SafeStay</h2>
-            <p className="text-muted-foreground text-lg">
-              Join our community to access safe, LGBTQ+ friendly housing listings
+            
+            <SimpleMap markers={mapMarkers} />
+          </div>
+        </section>
+
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="mb-8">
+            <h2 className="font-heading font-bold text-3xl mb-2">Nearby LGBTQ+ Resources</h2>
+            <p className="text-muted-foreground">Essential services and community spaces near you</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {nearbyResources.map((resource) => (
+              <ResourceCard key={resource.id} {...resource} />
+            ))}
+          </div>
+        </section>
+
+        <section className="bg-muted/30 py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="mb-8">
+              <h2 className="font-heading font-bold text-3xl mb-2">Community Reviews</h2>
+              <p className="text-muted-foreground">Real experiences from LGBTQ+ residents</p>
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {communityReviews.map((review) => (
+                <ReviewCard key={review.id} {...review} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="bg-gradient-to-br from-primary/10 to-chart-2/10 rounded-2xl p-8 sm:p-12 text-center">
+            <h2 className="font-heading font-bold text-3xl sm:text-4xl mb-4">
+              Ready to Find Your Safe Space?
+            </h2>
+            <p className="text-muted-foreground text-lg mb-6 max-w-2xl mx-auto">
+              Join thousands of LGBTQ+ individuals who have found welcoming homes through our community-driven platform
             </p>
           </div>
-        </div>
-      )}
-
-      {hasSubmittedEmail && (
-        <>
-          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <div className="mb-8">
-              <h2 className="font-heading font-bold text-3xl mb-2">Featured Listings</h2>
-              <p className="text-muted-foreground">Community-verified safe and welcoming spaces</p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-              {featuredListings.map((listing) => (
-                <ListingCard key={listing.id} {...listing} />
-              ))}
-            </div>
-          </section>
-
-          <section className="bg-muted/30 py-16">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="mb-8">
-                <h2 className="font-heading font-bold text-3xl mb-2">Explore Listings & Resources</h2>
-                <p className="text-muted-foreground">See where safe housing meets essential community resources</p>
-              </div>
-              
-              <SimpleMap markers={mapMarkers} />
-            </div>
-          </section>
-
-          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <div className="mb-8">
-              <h2 className="font-heading font-bold text-3xl mb-2">Nearby LGBTQ+ Resources</h2>
-              <p className="text-muted-foreground">Essential services and community spaces near you</p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {nearbyResources.map((resource) => (
-                <ResourceCard key={resource.id} {...resource} />
-              ))}
-            </div>
-          </section>
-
-          <section className="bg-muted/30 py-16">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="mb-8">
-                <h2 className="font-heading font-bold text-3xl mb-2">Community Reviews</h2>
-                <p className="text-muted-foreground">Real experiences from LGBTQ+ residents</p>
-              </div>
-              
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {communityReviews.map((review) => (
-                  <ReviewCard key={review.id} {...review} />
-                ))}
-              </div>
-            </div>
-          </section>
-
-          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <div className="bg-gradient-to-br from-primary/10 to-chart-2/10 rounded-2xl p-8 sm:p-12 text-center">
-              <h2 className="font-heading font-bold text-3xl sm:text-4xl mb-4">
-                Ready to Find Your Safe Space?
-              </h2>
-              <p className="text-muted-foreground text-lg mb-6 max-w-2xl mx-auto">
-                Join thousands of LGBTQ+ individuals who have found welcoming homes through our community-driven platform
-              </p>
-            </div>
-          </section>
-        </>
-      )}
+        </section>
+      </div>
     </div>
   );
 }

@@ -21,8 +21,13 @@ export default function EmailCaptureDialog({ open, onEmailSubmit }: EmailCapture
   };
 
   return (
-    <Dialog open={open} onOpenChange={() => {}}>
-      <DialogContent className="sm:max-w-md" onInteractOutside={(e) => e.preventDefault()}>
+    <Dialog open={open} onOpenChange={() => {}} modal={false}>
+      <DialogContent 
+        className="sm:max-w-md pointer-events-auto" 
+        onInteractOutside={(e) => e.preventDefault()}
+        onEscapeKeyDown={(e) => e.preventDefault()}
+        showCloseButton={false}
+      >
         <DialogHeader>
           <div className="mx-auto mb-4 bg-primary/10 rounded-full p-3">
             <Shield className="h-8 w-8 text-primary" />
