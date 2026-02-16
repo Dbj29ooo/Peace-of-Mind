@@ -26,7 +26,7 @@ export default function EmailCaptureDialog({ open, onEmailSubmit }: EmailCapture
         className="sm:max-w-md pointer-events-auto" 
         onInteractOutside={(e) => e.preventDefault()}
         onEscapeKeyDown={(e) => e.preventDefault()}
-        showCloseButton={false}
+        hideCloseButton
       >
         <DialogHeader>
           <div className="mx-auto mb-4 bg-primary/10 rounded-full p-3">
