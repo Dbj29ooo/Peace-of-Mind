@@ -1,4 +1,4 @@
-import { Leaf, Heart, MapPin } from "lucide-react";
+import { Shield, Heart, Users } from "lucide-react";
 import { SiGoogle, SiGithub, SiX, SiApple } from "react-icons/si";
 import {
   Dialog,
@@ -25,13 +25,13 @@ export default function EmailCaptureDialog({ open, onEmailSubmit }: EmailCapture
       <DialogContent className="sm:max-w-md" onInteractOutside={(e) => e.preventDefault()}>
         <DialogHeader>
           <div className="mx-auto mb-4 bg-primary/10 rounded-full p-3">
-            <Leaf className="h-8 w-8 text-primary" />
+            <Shield className="h-8 w-8 text-primary" />
           </div>
           <DialogTitle className="text-center font-heading text-2xl">
-            Welcome to Zenith
+            Join Our Safe Housing Community
           </DialogTitle>
           <DialogDescription className="text-center">
-            Sign in to discover peaceful rental properties and curated communities
+            Sign in to access LGBTQ+ friendly housing listings and community resources
           </DialogDescription>
         </DialogHeader>
 
@@ -99,21 +99,21 @@ export default function EmailCaptureDialog({ open, onEmailSubmit }: EmailCapture
             <div className="space-y-2 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Heart className="h-4 w-4 text-primary shrink-0" />
-                <span>Curated peaceful rental properties</span>
+                <span>Access to verified LGBTQ+ friendly listings</span>
               </div>
               <div className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-primary shrink-0" />
-                <span>Verified reviews from residents</span>
+                <Users className="h-4 w-4 text-primary shrink-0" />
+                <span>Community reviews and safety ratings</span>
               </div>
               <div className="flex items-center gap-2">
-                <Leaf className="h-4 w-4 text-primary shrink-0" />
-                <span>Wellness & community amenities</span>
+                <Shield className="h-4 w-4 text-primary shrink-0" />
+                <span>Updates on new safe housing options</span>
               </div>
             </div>
           </div>
 
           <p className="text-xs text-center text-muted-foreground">
-            By continuing, you agree to receive updates about peaceful living spaces
+            By continuing, you agree to receive updates about LGBTQ+ friendly housing
           </p>
         </div>
       </DialogContent>

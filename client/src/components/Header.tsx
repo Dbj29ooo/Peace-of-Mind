@@ -22,7 +22,7 @@ export default function Header() {
               <div className="w-8 h-8 rounded-md bg-primary flex items-center justify-center">
                 <Home className="h-5 w-5 text-primary-foreground" />
               </div>
-              <span className="font-heading font-bold text-xl hidden sm:inline">Zenith</span>
+              <span className="font-heading font-bold text-xl hidden sm:inline">SafeStay</span>
             </div>
           </Link>
 

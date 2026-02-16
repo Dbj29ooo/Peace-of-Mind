@@ -1,4 +1,4 @@
-import { Leaf, Users, MapPin } from "lucide-react";
+import { Shield, Users, MapPin } from "lucide-react";
 import SearchWidget from "./SearchWidget";
 
 export default function HeroSection() {
@@ -8,17 +8,18 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <Leaf className="h-4 w-4" />
-              10,000+ Peaceful Homes
+              <Shield className="h-4 w-4" />
+              50,000+ Safe Listings
             </div>
             
             <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl mb-6 leading-tight">
-              Discover Your{" "}
-              <span className="text-primary">Zen Sanctuary</span>
+              Find Your Safe Haven in the{" "}
+              <span className="text-primary">LGBTQ+ Community</span>
             </h1>
             
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Find serene rental properties in peaceful neighborhoods. Curated spaces designed for mindful living, tranquility, and personal growth.
+              Discover welcoming homes verified by our community, near essential LGBTQ+ resources. 
+              Your safety and comfort are our priority.
             </p>
 
             <div className="grid grid-cols-2 gap-6 mb-8">
@@ -27,8 +28,8 @@ export default function HeroSection() {
                   <Users className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <p className="font-semibold text-foreground">Verified Reviews</p>
-                  <p className="text-sm text-muted-foreground">Real experiences from residents</p>
+                  <p className="font-semibold text-foreground">Community Reviews</p>
+                  <p className="text-sm text-muted-foreground">Real experiences from LGBTQ+ residents</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -36,8 +37,8 @@ export default function HeroSection() {
                   <MapPin className="h-5 w-5 text-chart-2" />
                 </div>
                 <div>
-                  <p className="font-semibold text-foreground">Peaceful Locations</p>
-                  <p className="text-sm text-muted-foreground">Near parks, quiet areas & wellness centers</p>
+                  <p className="font-semibold text-foreground">Resource Proximity</p>
+                  <p className="text-sm text-muted-foreground">Near healthcare, community centers & more</p>
                 </div>
               </div>
             </div>
@@ -46,8 +47,8 @@ export default function HeroSection() {
           <div className="relative">
             <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-chart-2/20 flex items-center justify-center">
               <div className="text-center p-8">
-                <Leaf className="h-24 w-24 mx-auto mb-4 text-primary/40" />
-                <p className="text-muted-foreground">Tranquil & Serene Living</p>
+                <Shield className="h-24 w-24 mx-auto mb-4 text-primary/40" />
+                <p className="text-muted-foreground">Safe & Welcoming Spaces</p>
               </div>
             </div>
           </div>
