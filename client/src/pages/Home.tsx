@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ListingCard from "@/components/ListingCard";
@@ -6,27 +5,13 @@ import ResourceCard from "@/components/ResourceCard";
 import ReviewCard from "@/components/ReviewCard";
 import SimpleMap from "@/components/SimpleMap";
 import EmailCaptureDialog from "@/components/EmailCaptureDialog";
+import { useAuth } from "@/hooks/use-auth";
 
 export default function Home() {
-  const [showEmailDialog, setShowEmailDialog] = useState(false);
-  const [hasSubmittedEmail, setHasSubmittedEmail] = useState(false);
+  const { isAuthenticated, isLoading } = useAuth();
 
-  useEffect(() => {
-    const emailSubmitted = localStorage.getItem("emailSubmitted");
-    if (emailSubmitted === "true") {
-      setHasSubmittedEmail(true);
-    } else {
-      setShowEmailDialog(true);
-    }
-  }, []);
+  const showLoginDialog = !isLoading && !isAuthenticated;
 
-  const handleEmailSubmit = (email: string) => {
-    console.log("Email captured:", email);
-    localStorage.setItem("emailSubmitted", "true");
-    localStorage.setItem("userEmail", email);
-    setHasSubmittedEmail(true);
-    setShowEmailDialog(false);
-  };
   const featuredListings = [
     {
       id: "1",
@@ -141,9 +126,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background relative">
-      <EmailCaptureDialog open={showEmailDialog} onEmailSubmit={handleEmailSubmit} />
+      <EmailCaptureDialog open={showLoginDialog} />
       
-      <div className={showEmailDialog ? "blur-sm pointer-events-none select-none" : ""}>
+      <div className={showLoginDialog ? "blur-sm pointer-events-none select-none" : ""}>
         <Header />
         
         <HeroSection />

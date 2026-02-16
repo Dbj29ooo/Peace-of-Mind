@@ -1,17 +1,24 @@
-import { Home, Heart, User, Menu } from "lucide-react";
+import { Home, Heart, User, Menu, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
 import ThemeToggle from "./ThemeToggle";
 import { useState } from "react";
+import { useAuth } from "@/hooks/use-auth";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function Header() {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { user, isAuthenticated, isLoading } = useAuth();
 
   const navItems = [
     { href: "/", label: "Browse", icon: Home },
     { href: "/favorites", label: "Favorites", icon: Heart },
   ];
+
+  const initials = user
+    ? `${(user.firstName || "")[0] || ""}${(user.lastName || "")[0] || ""}`.toUpperCase() || "U"
+    : "";
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur-lg bg-background/80 border-b border-border">
@@ -47,10 +54,38 @@ export default function Header() {
 
           <div className="flex items-center gap-2">
             <ThemeToggle />
-            <Button variant="default" data-testid="button-signin">
-              <User className="h-4 w-4 md:mr-2" />
-              <span className="hidden md:inline">Sign In</span>
-            </Button>
+            {isLoading ? (
+              <div className="h-9 w-20 bg-muted animate-pulse rounded-md" />
+            ) : isAuthenticated && user ? (
+              <div className="flex items-center gap-2">
+                <div className="hidden sm:flex items-center gap-2">
+                  <Avatar className="h-8 w-8">
+                    <AvatarImage src={user.profileImageUrl || undefined} alt={user.firstName || "User"} />
+                    <AvatarFallback className="text-xs">{initials}</AvatarFallback>
+                  </Avatar>
+                  <span className="text-sm font-medium max-w-[120px] truncate" data-testid="text-username">
+                    {user.firstName || user.email || "User"}
+                  </span>
+                </div>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => { window.location.href = "/api/logout"; }}
+                  data-testid="button-logout"
+                >
+                  <LogOut className="h-4 w-4" />
+                </Button>
+              </div>
+            ) : (
+              <Button
+                variant="default"
+                onClick={() => { window.location.href = "/api/login"; }}
+                data-testid="button-signin"
+              >
+                <User className="h-4 w-4 md:mr-2" />
+                <span className="hidden md:inline">Sign In</span>
+              </Button>
+            )}
             <Button
               variant="ghost"
               size="icon"

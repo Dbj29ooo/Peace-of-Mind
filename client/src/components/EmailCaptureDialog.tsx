@@ -12,11 +12,10 @@ import { Separator } from "@/components/ui/separator";
 
 interface EmailCaptureDialogProps {
   open: boolean;
-  onEmailSubmit: (email: string) => void;
 }
 
-export default function EmailCaptureDialog({ open, onEmailSubmit }: EmailCaptureDialogProps) {
-  const handleSocialLogin = () => {
+export default function EmailCaptureDialog({ open }: EmailCaptureDialogProps) {
+  const handleLogin = () => {
     window.location.href = "/api/login";
   };
 
@@ -43,7 +42,7 @@ export default function EmailCaptureDialog({ open, onEmailSubmit }: EmailCapture
         <div className="space-y-4">
           <div className="space-y-3">
             <Button
-              onClick={handleSocialLogin}
+              onClick={handleLogin}
               variant="outline"
               className="w-full gap-3 h-11"
               data-testid="button-login-google"
@@ -53,7 +52,7 @@ export default function EmailCaptureDialog({ open, onEmailSubmit }: EmailCapture
             </Button>
 
             <Button
-              onClick={handleSocialLogin}
+              onClick={handleLogin}
               variant="outline"
               className="w-full gap-3 h-11"
               data-testid="button-login-github"
@@ -63,7 +62,7 @@ export default function EmailCaptureDialog({ open, onEmailSubmit }: EmailCapture
             </Button>
 
             <Button
-              onClick={handleSocialLogin}
+              onClick={handleLogin}
               variant="outline"
               className="w-full gap-3 h-11"
               data-testid="button-login-x"
@@ -73,7 +72,7 @@ export default function EmailCaptureDialog({ open, onEmailSubmit }: EmailCapture
             </Button>
 
             <Button
-              onClick={handleSocialLogin}
+              onClick={handleLogin}
               variant="outline"
               className="w-full gap-3 h-11"
               data-testid="button-login-apple"
@@ -91,7 +90,7 @@ export default function EmailCaptureDialog({ open, onEmailSubmit }: EmailCapture
           </div>
 
           <Button
-            onClick={handleSocialLogin}
+            onClick={handleLogin}
             variant="outline"
             className="w-full gap-3 h-11"
             data-testid="button-login-email"
