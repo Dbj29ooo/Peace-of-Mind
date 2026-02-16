@@ -12,14 +12,12 @@ export default function HeroSection() {
               50,000+ Safe Listings
             </div>
             
-            <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl mb-6 leading-tight">
-              Find Your Safe Haven in the{" "}
-              <span className="text-primary">LGBTQ+ Community</span>
+            <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-7xl mb-6 leading-tight tracking-tight">
+              Find Your <span className="text-primary italic">Affordable</span> Haven
             </h1>
             
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Discover welcoming homes verified by our community, near essential LGBTQ+ resources. 
-              Your safety and comfort are our priority.
+            <p className="text-xl text-muted-foreground mb-8 leading-relaxed max-w-xl">
+              SafeStay connects the LGBTQ+ community with verified affordable housing and HUD-supported listings.
             </p>
 
             <div className="grid grid-cols-2 gap-6 mb-8">

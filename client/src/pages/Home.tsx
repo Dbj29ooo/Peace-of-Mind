@@ -30,9 +30,9 @@ export default function Home() {
   const featuredListings = [
     {
       id: "1",
-      title: "Modern Studio in Capitol Hill",
+      title: "Affordable Studio in Capitol Hill",
       location: "Capitol Hill, Seattle, WA",
-      price: 1200,
+      price: 950,
       type: "rental" as const,
       rating: 4.8,
       reviewCount: 24,
@@ -45,9 +45,9 @@ export default function Home() {
     },
     {
       id: "2",
-      title: "Spacious Room in Shared House",
+      title: "HUD-Supported Shared House",
       location: "Fremont, Seattle, WA",
-      price: 850,
+      price: 650,
       type: "shared" as const,
       rating: 4.9,
       reviewCount: 31,
@@ -60,9 +60,9 @@ export default function Home() {
     },
     {
       id: "3",
-      title: "Student Housing Near UW",
+      title: "Affordable Student Housing",
       location: "University District, Seattle, WA",
-      price: 950,
+      price: 750,
       type: "student" as const,
       rating: 4.6,
       reviewCount: 18,
