@@ -1,4 +1,4 @@
-import { Shield, Heart, Users, X } from "lucide-react";
+import { Home, Heart, Users, X, MapPin } from "lucide-react";
 import { SiGoogle, SiGithub, SiX, SiApple } from "react-icons/si";
 import {
   Dialog,
@@ -36,13 +36,13 @@ export default function EmailCaptureDialog({ open, onClose }: EmailCaptureDialog
         </button>
         <DialogHeader>
           <div className="mx-auto mb-4 bg-primary/10 rounded-full p-3">
-            <Shield className="h-8 w-8 text-primary" />
+            <Home className="h-8 w-8 text-primary" />
           </div>
           <DialogTitle className="text-center font-heading text-2xl">
-            Join Our Safe Housing Community
+            Welcome to HomeBase
           </DialogTitle>
           <DialogDescription className="text-center">
-            Sign in to access LGBTQ+ friendly housing listings and community resources
+            Sign in to save listings, access relocation resources, and connect with your community
           </DialogDescription>
         </DialogHeader>
 
@@ -110,21 +110,21 @@ export default function EmailCaptureDialog({ open, onClose }: EmailCaptureDialog
             <div className="space-y-2 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Heart className="h-4 w-4 text-primary shrink-0" />
-                <span>Access to verified LGBTQ+ friendly listings</span>
+                <span>Save and track affordable housing listings</span>
               </div>
               <div className="flex items-center gap-2">
                 <Users className="h-4 w-4 text-primary shrink-0" />
-                <span>Community reviews and safety ratings</span>
+                <span>Community reviews and neighborhood ratings</span>
               </div>
               <div className="flex items-center gap-2">
-                <Shield className="h-4 w-4 text-primary shrink-0" />
-                <span>Updates on new safe housing options</span>
+                <MapPin className="h-4 w-4 text-primary shrink-0" />
+                <span>Nearby shelters, food banks & relocation resources</span>
               </div>
             </div>
           </div>
 
           <p className="text-xs text-center text-muted-foreground">
-            By continuing, you agree to receive updates about LGBTQ+ friendly housing
+            By continuing, you agree to receive updates about affordable housing near you
           </p>
         </div>
       </DialogContent>

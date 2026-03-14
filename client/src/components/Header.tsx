@@ -1,4 +1,4 @@
-import { Home, Heart, User, Menu, LogOut } from "lucide-react";
+import { Home, User, Menu, LogOut, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
 import ThemeToggle from "./ThemeToggle";
@@ -13,7 +13,7 @@ export default function Header() {
 
   const navItems = [
     { href: "/", label: "Browse", icon: Home },
-    { href: "/favorites", label: "Favorites", icon: Heart },
+    { href: "/resources", label: "Resources", icon: BookOpen },
   ];
 
   const initials = user
@@ -29,7 +29,7 @@ export default function Header() {
               <div className="w-8 h-8 rounded-md bg-primary flex items-center justify-center">
                 <Home className="h-5 w-5 text-primary-foreground" />
               </div>
-              <span className="font-heading font-bold text-xl hidden sm:inline">SafeStay</span>
+              <span className="font-heading font-bold text-xl hidden sm:inline">HomeBase</span>
             </div>
           </Link>
 

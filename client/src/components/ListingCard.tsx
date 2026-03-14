@@ -1,4 +1,4 @@
-import { Heart, MapPin, Home, Users, Star } from "lucide-react";
+import { Heart, MapPin, Home, Users, Star, BadgeCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -9,7 +9,7 @@ interface ListingCardProps {
   title: string;
   location: string;
   price: number;
-  type: "rental" | "shared" | "sale" | "student";
+  type: "rental" | "shared" | "sale" | "student" | "section8" | "senior";
   rating: number;
   reviewCount: number;
   nearbyResources: number;
@@ -32,21 +32,25 @@ export default function ListingCard({
   const [isFavorite, setIsFavorite] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const typeLabels = {
+  const typeLabels: Record<string, string> = {
     rental: "Rental",
     shared: "Shared",
     sale: "For Sale",
-    student: "Student"
+    student: "Student",
+    section8: "Section 8",
+    senior: "Senior Living"
   };
 
-  const typeIcons = {
+  const typeIcons: Record<string, typeof Home> = {
     rental: Home,
     shared: Users,
     sale: Home,
-    student: Home
+    student: Home,
+    section8: Home,
+    senior: Home
   };
 
-  const TypeIcon = typeIcons[type];
+  const TypeIcon = typeIcons[type] || Home;
 
   return (
     <Card className="overflow-hidden hover-elevate" data-testid={`card-listing-${id}`}>
@@ -59,15 +63,16 @@ export default function ListingCard({
         <Button
           variant="ghost"
           size="icon"
-          className="absolute top-2 right-2 bg-background/80 backdrop-blur-sm hover:bg-background/90"
+          className="absolute top-2 right-2 bg-background/80 backdrop-blur-sm"
           onClick={() => setIsFavorite(!isFavorite)}
           data-testid={`button-favorite-${id}`}
         >
           <Heart className={`h-4 w-4 ${isFavorite ? "fill-primary text-primary" : ""}`} />
         </Button>
         {verified && (
-          <Badge className="absolute top-2 left-2 bg-primary/90 backdrop-blur-sm">
-            Verified Safe
+          <Badge className="absolute top-2 left-2 bg-primary/90 backdrop-blur-sm gap-1">
+            <BadgeCheck className="h-3 w-3" />
+            Verified
           </Badge>
         )}
         {images.length > 1 && (
@@ -107,7 +112,7 @@ export default function ListingCard({
         <div className="flex items-center gap-2 flex-wrap mb-3">
           <Badge variant="secondary" className="gap-1">
             <TypeIcon className="h-3 w-3" />
-            {typeLabels[type]}
+            {typeLabels[type] || type}
           </Badge>
           <Badge variant="outline" className="gap-1">
             {nearbyResources} resources nearby
